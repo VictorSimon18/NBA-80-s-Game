@@ -1,0 +1,93 @@
+import { StyleSheet } from 'react-native';
+
+export const matchScreenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  scrollContent: {
+    alignItems: 'center',
+    padding: 20,
+    paddingBottom: 40,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#00FF00',
+    textShadowColor: '#00AA00',
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 0,
+    marginTop: 20,
+    marginBottom: 10,
+    fontFamily: 'monospace',
+  },
+  matchContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+    width: '100%',
+    marginTop: 20,
+    gap: 10,
+  },
+  matchTeam: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  matchTeamName: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    marginTop: 15,
+    marginBottom: 10,
+    fontFamily: 'monospace',
+  },
+  matchPlayersContainer: {
+    backgroundColor: '#1a1a1a',
+    padding: 10,
+    borderWidth: 2,
+    borderColor: '#FFD700',
+    width: '100%',
+  },
+  matchPlayerName: {
+    fontSize: 12,
+    color: '#00FFFF',
+    marginVertical: 2,
+    fontFamily: 'monospace',
+    textAlign: 'center',
+  },
+  vsContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
+  vsText: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#FF0000',
+    textShadowColor: '#AA0000',
+    textShadowOffset: { width: 4, height: 4 },
+    textShadowRadius: 0,
+    fontFamily: 'monospace',
+  },
+  backButton: {
+    backgroundColor: '#0000FF',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    marginTop: 30,
+    borderWidth: 4,
+    borderColor: '#0000AA',
+  },
+  backButtonText: {
+    fontSize: 18,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontFamily: 'monospace',
+  },
+  matchFooter: {
+    fontSize: 20,
+    color: '#FF00FF',
+    marginTop: 20,
+    fontFamily: 'monospace',
+    fontWeight: 'bold',
+  },
+});
