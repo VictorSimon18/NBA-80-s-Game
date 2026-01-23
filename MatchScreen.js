@@ -6,8 +6,12 @@ import { matchScreenStyles } from './matchScreenStyles';
 export const MatchScreen = ({ homeTeam, awayTeam, onBack }) => {
   return (
     <ScrollView style={matchScreenStyles.container} contentContainerStyle={matchScreenStyles.scrollContent}>
-      <Text style={matchScreenStyles.title}>BASKETBALL '84</Text>
-      
+      <Text style={matchScreenStyles.title}>BALONCESTO '84</Text>
+
+      <View style={matchScreenStyles.scoreContainer}>
+        <Text style={matchScreenStyles.scoreText}>27 - 19</Text>
+      </View>
+
       <View style={matchScreenStyles.matchContainer}>
         {/* Equipo Local */}
         <View style={matchScreenStyles.matchTeam}>
@@ -50,7 +54,7 @@ export const MatchScreen = ({ homeTeam, awayTeam, onBack }) => {
         <Text style={matchScreenStyles.backButtonText}>◄ VOLVER</Text>
       </TouchableOpacity>
 
-      <Text style={matchScreenStyles.matchFooter}>GET READY!</Text>
+      <Text style={matchScreenStyles.matchFooter}>¡PREPÁRATE!</Text>
     </ScrollView>
   );
 };

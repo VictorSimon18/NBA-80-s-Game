@@ -31,8 +31,8 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
 
   return (
     <ScrollView style={teamSelectionStyles.container} contentContainerStyle={teamSelectionStyles.scrollContent}>
-      <Text style={teamSelectionStyles.title}>BASKETBALL '84</Text>
-      <Text style={teamSelectionStyles.subtitle}>SELECT YOUR TEAMS</Text>
+      <Text style={teamSelectionStyles.title}>BALONCESTO '84</Text>
+      <Text style={teamSelectionStyles.subtitle}>SELECCIONA TUS EQUIPOS</Text>
 
       <View style={teamSelectionStyles.teamsContainer}>
         {/* Equipo Local */}
@@ -111,7 +111,7 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
         <Text style={teamSelectionStyles.playButtonText}>▶ JUGAR</Text>
       </TouchableOpacity>
 
-      <Text style={teamSelectionStyles.footer}>PRESS START</Text>
+      <Text style={teamSelectionStyles.footer}>PRESIONA JUGAR</Text>
     </ScrollView>
   );
 };

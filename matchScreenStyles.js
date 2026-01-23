@@ -83,6 +83,19 @@ export const matchScreenStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'monospace',
   },
+  scoreContainer: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  scoreText: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textShadowColor: '#FFD700',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 0,
+    fontFamily: 'monospace',
+  },
   matchFooter: {
     fontSize: 20,
     color: '#FF00FF',
