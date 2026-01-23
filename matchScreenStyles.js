@@ -49,11 +49,11 @@ export const matchScreenStyles = StyleSheet.create({
     width: '100%',
   },
   matchPlayerName: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#00FFFF',
-    marginVertical: 2,
     fontFamily: 'monospace',
     textAlign: 'center',
+    fontWeight: 'bold',
   },
   vsContainer: {
     justifyContent: 'center',
@@ -102,5 +102,69 @@ export const matchScreenStyles = StyleSheet.create({
     marginTop: 20,
     fontFamily: 'monospace',
     fontWeight: 'bold',
+  },
+  playerRow: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginVertical: 6,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333',
+  },
+  playerInfo: {
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  playerPoints: {
+    fontSize: 11,
+    color: '#FFD700',
+    fontFamily: 'monospace',
+    marginTop: 3,
+    fontWeight: 'bold',
+  },
+  pointButtons: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  pointButton: {
+    backgroundColor: '#228B22',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderWidth: 2,
+    borderColor: '#006400',
+    minWidth: 40,
+    alignItems: 'center',
+  },
+  threePointButton: {
+    backgroundColor: '#8B0000',
+    borderColor: '#5C0000',
+  },
+  pointButtonText: {
+    fontSize: 12,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontFamily: 'monospace',
+  },
+  buttonsContainer: {
+    marginTop: 30,
+    alignItems: 'center',
+    gap: 15,
+  },
+  finishButton: {
+    backgroundColor: '#FFD700',
+    paddingHorizontal: 30,
+    paddingVertical: 15,
+    borderWidth: 4,
+    borderColor: '#B8860B',
+  },
+  finishButtonDisabled: {
+    backgroundColor: '#666666',
+    borderColor: '#444444',
+  },
+  finishButtonText: {
+    fontSize: 16,
+    color: '#000000',
+    fontWeight: 'bold',
+    fontFamily: 'monospace',
   },
 });
