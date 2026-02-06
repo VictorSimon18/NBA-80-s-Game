@@ -49,7 +49,7 @@ export const matchScreenStyles = StyleSheet.create({
     width: '100%',
   },
   matchPlayerName: {
-    fontSize: 13,
+    fontSize: 15,
     color: '#00FFFF',
     fontFamily: 'monospace',
     textAlign: 'center',
@@ -72,7 +72,9 @@ export const matchScreenStyles = StyleSheet.create({
   backButton: {
     backgroundColor: '#0000FF',
     paddingHorizontal: 30,
-    paddingVertical: 15,
+    paddingVertical: 16,
+    minHeight: 48,
+    justifyContent: 'center',
     marginTop: 30,
     borderWidth: 4,
     borderColor: '#0000AA',
@@ -106,8 +108,8 @@ export const matchScreenStyles = StyleSheet.create({
   playerRow: {
     flexDirection: 'column',
     alignItems: 'center',
-    marginVertical: 6,
-    paddingVertical: 8,
+    marginVertical: 8,
+    paddingVertical: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#333',
   },
@@ -116,7 +118,7 @@ export const matchScreenStyles = StyleSheet.create({
     marginBottom: 6,
   },
   playerPoints: {
-    fontSize: 11,
+    fontSize: 13,
     color: '#FFD700',
     fontFamily: 'monospace',
     marginTop: 3,
@@ -124,15 +126,17 @@ export const matchScreenStyles = StyleSheet.create({
   },
   pointButtons: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 14,
   },
   pointButton: {
     backgroundColor: '#228B22',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderWidth: 2,
     borderColor: '#006400',
-    minWidth: 40,
+    minWidth: 48,
+    minHeight: 48,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   threePointButton: {
@@ -140,7 +144,7 @@ export const matchScreenStyles = StyleSheet.create({
     borderColor: '#5C0000',
   },
   pointButtonText: {
-    fontSize: 12,
+    fontSize: 16,
     color: '#FFFFFF',
     fontWeight: 'bold',
     fontFamily: 'monospace',
@@ -148,12 +152,14 @@ export const matchScreenStyles = StyleSheet.create({
   buttonsContainer: {
     marginTop: 30,
     alignItems: 'center',
-    gap: 15,
+    gap: 20,
   },
   finishButton: {
     backgroundColor: '#FFD700',
     paddingHorizontal: 30,
-    paddingVertical: 15,
+    paddingVertical: 16,
+    minHeight: 48,
+    justifyContent: 'center',
     borderWidth: 4,
     borderColor: '#B8860B',
   },

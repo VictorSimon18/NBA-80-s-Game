@@ -68,10 +68,10 @@ export const gameOverStyles = StyleSheet.create({
     gap: 15,
   },
   teamScoreName: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#FFFFFF',
     fontFamily: 'monospace',
-    width: 80,
+    width: 90,
     textAlign: 'center',
   },
   finalScore: {
@@ -105,7 +105,7 @@ export const gameOverStyles = StyleSheet.create({
   top5Row: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#333',
   },
@@ -121,12 +121,12 @@ export const gameOverStyles = StyleSheet.create({
     flexDirection: 'column',
   },
   top5PlayerName: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#00FFFF',
     fontFamily: 'monospace',
   },
   top5TeamName: {
-    fontSize: 11,
+    fontSize: 13,
     color: '#888888',
     fontFamily: 'monospace',
   },
@@ -140,6 +140,8 @@ export const gameOverStyles = StyleSheet.create({
     backgroundColor: '#00FF00',
     paddingHorizontal: 40,
     paddingVertical: 18,
+    minHeight: 56,
+    justifyContent: 'center',
     borderWidth: 4,
     borderColor: '#00AA00',
     marginTop: 10,
