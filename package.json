@@ -19,10 +19,14 @@
   },
   "jest": {
     "testMatch": [
-      "**/__tests__/**/*.test.js"
+      "**/__tests__/**/*.test.js",
+      "**/*.test.js"
     ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    },
     "transformIgnorePatterns": [
-      "node_modules/"
+      "node_modules/(?!(expo|@expo|react-native|@react-native)/)"
     ]
   },
   "private": true,
