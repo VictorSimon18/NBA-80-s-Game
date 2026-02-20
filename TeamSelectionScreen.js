@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { TeamShield } from './TeamShield';
 import { teams } from './Teams';
-import { teamSelectionStyles } from './teamSelectionStyles';
+import { teamSelectionStyles as s } from './teamSelectionStyles';
 
 export const TeamSelectionScreen = ({ onPlayPress }) => {
   const [homeTeamIndex, setHomeTeamIndex] = useState(0);
@@ -30,88 +30,99 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
   const awayTeam = teams[awayTeamIndex];
 
   return (
-    <ScrollView style={teamSelectionStyles.container} contentContainerStyle={teamSelectionStyles.scrollContent}>
-      <Text style={teamSelectionStyles.title}>BALONCESTO '84</Text>
-      <Text style={teamSelectionStyles.subtitle}>SELECCIONA TUS EQUIPOS</Text>
+    <View style={s.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#000" />
 
-      <View style={teamSelectionStyles.teamsContainer}>
-        {/* Equipo Local */}
-        <View style={teamSelectionStyles.teamSelector}>
-          <Text style={teamSelectionStyles.teamLabel}>LOCAL</Text>
-          
-          <View style={teamSelectionStyles.selectorRow}>
-            <TouchableOpacity 
-              style={teamSelectionStyles.arrowButton} 
-              onPress={() => changeHomeTeam(-1)}
-            >
-              <Text style={teamSelectionStyles.arrowText}>◄</Text>
-            </TouchableOpacity>
+      {/* 1. Nombre de la app */}
+      <View style={s.header}>
+        <Text style={s.title}>BALONCESTO '84</Text>
+        <Text style={s.subtitle}>SELECCIONA TUS EQUIPOS</Text>
+      </View>
 
-            <TeamShield team={homeTeam} size={100} />
+      {/* 2. Selector equipo local */}
+      <View style={s.teamBlock}>
+        <Text style={s.teamLabel}>LOCAL</Text>
+        <View style={s.selectorRow}>
+          <TouchableOpacity
+            style={s.arrowButton}
+            onPress={() => changeHomeTeam(-1)}
+            activeOpacity={0.6}
+          >
+            <Text style={s.arrowText}>◄</Text>
+          </TouchableOpacity>
 
-            <TouchableOpacity 
-              style={teamSelectionStyles.arrowButton} 
-              onPress={() => changeHomeTeam(1)}
-            >
-              <Text style={teamSelectionStyles.arrowText}>►</Text>
-            </TouchableOpacity>
+          <View style={s.selectorCenter}>
+            <TeamShield team={homeTeam} size={90} />
+            <Text style={s.teamName}>{homeTeam.name}</Text>
           </View>
 
-          <Text style={teamSelectionStyles.teamName}>{homeTeam.name}</Text>
-
-          <View style={teamSelectionStyles.playersContainer}>
-            <Text style={teamSelectionStyles.playersTitle}>QUINTETO INICIAL</Text>
-            {homeTeam.players.map((player, index) => (
-              <Text key={index} style={teamSelectionStyles.playerName}>
-                {index + 1}. {player}
-              </Text>
-            ))}
-          </View>
-        </View>
-
-        {/* Equipo Visitante */}
-        <View style={teamSelectionStyles.teamSelector}>
-          <Text style={teamSelectionStyles.teamLabel}>VISITANTE</Text>
-          
-          <View style={teamSelectionStyles.selectorRow}>
-            <TouchableOpacity 
-              style={teamSelectionStyles.arrowButton} 
-              onPress={() => changeAwayTeam(-1)}
-            >
-              <Text style={teamSelectionStyles.arrowText}>◄</Text>
-            </TouchableOpacity>
-
-            <TeamShield team={awayTeam} size={100} />
-
-            <TouchableOpacity 
-              style={teamSelectionStyles.arrowButton} 
-              onPress={() => changeAwayTeam(1)}
-            >
-              <Text style={teamSelectionStyles.arrowText}>►</Text>
-            </TouchableOpacity>
-          </View>
-
-          <Text style={teamSelectionStyles.teamName}>{awayTeam.name}</Text>
-
-          <View style={teamSelectionStyles.playersContainer}>
-            <Text style={teamSelectionStyles.playersTitle}>QUINTETO INICIAL</Text>
-            {awayTeam.players.map((player, index) => (
-              <Text key={index} style={teamSelectionStyles.playerName}>
-                {index + 1}. {player}
-              </Text>
-            ))}
-          </View>
+          <TouchableOpacity
+            style={s.arrowButton}
+            onPress={() => changeHomeTeam(1)}
+            activeOpacity={0.6}
+          >
+            <Text style={s.arrowText}>►</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
-      <TouchableOpacity 
-        style={teamSelectionStyles.playButton}
-        onPress={() => onPlayPress(homeTeam, awayTeam)}
-      >
-        <Text style={teamSelectionStyles.playButtonText}>▶ JUGAR</Text>
-      </TouchableOpacity>
+      {/* 3. Quinteto inicial equipo local */}
+      <View style={s.playersBlock}>
+        <Text style={s.playersTitle}>QUINTETO INICIAL</Text>
+        {homeTeam.players.map((player, index) => (
+          <Text key={index} style={s.playerName} numberOfLines={1}>
+            {index + 1}. {player}
+          </Text>
+        ))}
+      </View>
 
-      <Text style={teamSelectionStyles.footer}>PRESIONA JUGAR</Text>
-    </ScrollView>
+      {/* 4. Selector equipo visitante */}
+      <View style={s.teamBlock}>
+        <Text style={s.teamLabel}>VISITANTE</Text>
+        <View style={s.selectorRow}>
+          <TouchableOpacity
+            style={s.arrowButton}
+            onPress={() => changeAwayTeam(-1)}
+            activeOpacity={0.6}
+          >
+            <Text style={s.arrowText}>◄</Text>
+          </TouchableOpacity>
+
+          <View style={s.selectorCenter}>
+            <TeamShield team={awayTeam} size={90} />
+            <Text style={s.teamName}>{awayTeam.name}</Text>
+          </View>
+
+          <TouchableOpacity
+            style={s.arrowButton}
+            onPress={() => changeAwayTeam(1)}
+            activeOpacity={0.6}
+          >
+            <Text style={s.arrowText}>►</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* 5. Quinteto equipo visitante */}
+      <View style={s.playersBlock}>
+        <Text style={s.playersTitle}>QUINTETO INICIAL</Text>
+        {awayTeam.players.map((player, index) => (
+          <Text key={index} style={s.playerName} numberOfLines={1}>
+            {index + 1}. {player}
+          </Text>
+        ))}
+      </View>
+
+      {/* 6. Botón jugar */}
+      <View style={s.footer}>
+        <TouchableOpacity
+          style={s.playButton}
+          onPress={() => onPlayPress(homeTeam, awayTeam)}
+          activeOpacity={0.7}
+        >
+          <Text style={s.playButtonText}>▶ JUGAR</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 };

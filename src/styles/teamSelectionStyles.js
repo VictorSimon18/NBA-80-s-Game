@@ -46,7 +46,7 @@ export const teamSelectionStyles = StyleSheet.create({
     fontSize: hp(1.5),
     color: COLORS.neonMagenta,
     ...glowText(COLORS.neonMagentaDark, 6),
-    marginBottom: hp(3.6),
+    marginBottom: hp(3.0),
   },
   selectorRow: {
     flexDirection: 'row',
@@ -79,7 +79,7 @@ export const teamSelectionStyles = StyleSheet.create({
     fontSize: hp(2.0),
     color: COLORS.white,
     textAlign: 'center',
-    marginTop: hp(3.0),
+    marginTop: hp(2.0),
   },
 
   // 3 & 5. Bloque quinteto - se ajusta al contenido
