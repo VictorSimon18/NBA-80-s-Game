@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TeamSelectionScreen } from './TeamSelectionScreen';
-import { MatchScreen } from './MatchScreen.js';
-import { GameOverScreen } from './GameOverScreen';
+import { TeamSelectionScreen } from './src/screens/TeamSelectionScreen';
+import { MatchScreen } from './src/screens/MatchScreen';
+import { GameOverScreen } from './src/screens/GameOverScreen';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('selection');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, StatusBar } from 'react-native';
 import { TeamShield } from '../components/TeamShield';
 import { matchScreenStyles as s } from '../styles/matchScreenStyles';
 
@@ -48,20 +48,20 @@ export const MatchScreen = ({ homeTeam, awayTeam, onBack, onFinish }) => {
 
   const PlayerRow = ({ player, points, isHome }) => (
     <View style={s.playerRow}>
-      <Text style={s.playerName} numberOfLines={1}>{player}</Text>
-      <Text style={s.playerPoints}>{points}</Text>
+      <View style={s.playerInfo}>
+        <Text style={s.matchPlayerName}>{player}</Text>
+        <Text style={s.playerPoints}>{points} pts</Text>
+      </View>
       <View style={s.pointButtons}>
         <TouchableOpacity
           style={s.pointButton}
           onPress={() => addPoints(player, 2, isHome)}
-          activeOpacity={0.6}
         >
           <Text style={s.pointButtonText}>+2</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[s.pointButton, s.threePointButton]}
           onPress={() => addPoints(player, 3, isHome)}
-          activeOpacity={0.6}
         >
           <Text style={s.pointButtonText}>+3</Text>
         </TouchableOpacity>
@@ -70,32 +70,25 @@ export const MatchScreen = ({ homeTeam, awayTeam, onBack, onFinish }) => {
   );
 
   return (
-    <View style={s.container}>
+    <ScrollView style={s.container} contentContainerStyle={s.scrollContent}>
       <StatusBar barStyle="light-content" backgroundColor="#000" />
 
-      {/* 1. Nombre de la app */}
-      <View style={s.header}>
-        <Text style={s.title}>BALONCESTO '84</Text>
+      {/* Marcador */}
+      <View style={s.scoreContainer}>
+        <Text style={s.scoreLabel}>{homeTeam.name}</Text>
+        <Text style={s.scoreText}>{homeScore} - {awayScore}</Text>
+        <Text style={s.scoreLabel}>{awayTeam.name}</Text>
       </View>
 
-      {/* 2. Marcador */}
-      <View style={s.scoreZone}>
-        <Text style={s.scoreTeamName}>{homeTeam.name}</Text>
-        <Text style={s.scoreText}>{homeScore}</Text>
-        <Text style={s.scoreDash}>-</Text>
-        <Text style={s.scoreText}>{awayScore}</Text>
-        <Text style={s.scoreTeamName}>{awayTeam.name}</Text>
+      {/* Escudo equipo local */}
+      <View style={s.shieldBlock}>
+        <TeamShield team={homeTeam} size={65} />
+        <Text style={s.teamName}>{homeTeam.name}</Text>
       </View>
 
-      {/* 3. Escudo equipo local */}
-      <View style={s.teamBlock}>
-        <Text style={s.teamLabel}>LOCAL</Text>
-        <TeamShield team={homeTeam} size={44} />
-        <Text style={s.matchTeamName}>{homeTeam.name}</Text>
-      </View>
-
-      {/* 4. Quinteto equipo local + puntos */}
+      {/* Quinteto local + puntos */}
       <View style={s.playersBlock}>
+        <Text style={s.playersTitle}>QUINTETO INICIAL</Text>
         {homeTeam.players.map((player, index) => (
           <PlayerRow
             key={index}
@@ -106,15 +99,15 @@ export const MatchScreen = ({ homeTeam, awayTeam, onBack, onFinish }) => {
         ))}
       </View>
 
-      {/* 5. Escudo equipo visitante */}
-      <View style={s.teamBlock}>
-        <Text style={s.teamLabel}>VISITANTE</Text>
-        <TeamShield team={awayTeam} size={44} />
-        <Text style={s.matchTeamName}>{awayTeam.name}</Text>
+      {/* Escudo equipo visitante */}
+      <View style={s.shieldBlock}>
+        <TeamShield team={awayTeam} size={65} />
+        <Text style={s.teamName}>{awayTeam.name}</Text>
       </View>
 
-      {/* 6. Quinteto equipo visitante + puntos */}
+      {/* Quinteto visitante + puntos */}
       <View style={s.playersBlock}>
+        <Text style={s.playersTitle}>QUINTETO INICIAL</Text>
         {awayTeam.players.map((player, index) => (
           <PlayerRow
             key={index}
@@ -125,32 +118,18 @@ export const MatchScreen = ({ homeTeam, awayTeam, onBack, onFinish }) => {
         ))}
       </View>
 
-      {/* 7. Botones finalizar + volver */}
-      <View style={s.footer}>
+      {/* Botón finalizar */}
+      <View style={s.buttonsContainer}>
         <TouchableOpacity
-          style={s.backButton}
-          onPress={onBack}
-          activeOpacity={0.7}
+          style={[s.finishButton, isTied && s.finishButtonDisabled]}
+          onPress={handleFinish}
+          disabled={isTied}
         >
-          <Text style={s.backButtonText}>VOLVER</Text>
+          <Text style={s.finishButtonText}>
+            {isTied ? 'EMPATE - NO PUEDES FINALIZAR' : 'FINALIZAR PARTIDO'}
+          </Text>
         </TouchableOpacity>
-
-        <View style={{ alignItems: 'center' }}>
-          <TouchableOpacity
-            style={[s.finishButton, isTied && s.finishButtonDisabled]}
-            onPress={handleFinish}
-            disabled={isTied}
-            activeOpacity={0.7}
-          >
-            <Text style={s.finishButtonText}>
-              {isTied ? 'EMPATE' : 'FINALIZAR'}
-            </Text>
-          </TouchableOpacity>
-          {isTied && (
-            <Text style={s.tiedMessage}>DESEMPATA PRIMERO</Text>
-          )}
-        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };

@@ -1,17 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
-import { TeamShield } from './TeamShield';
-import { gameOverStyles } from './gameOverStyles';
+import { TeamShield } from '../components/TeamShield';
+import { gameOverStyles } from '../styles/gameOverStyles';
 
 export const GameOverScreen = ({ matchData, onNewGame }) => {
   const { homeTeam, awayTeam, homeScore, awayScore, playerScores } = matchData;
 
-  // Determinar ganador
   const winner = homeScore > awayScore ? homeTeam : awayTeam;
-  const winnerScore = homeScore > awayScore ? homeScore : awayScore;
-  const loserScore = homeScore > awayScore ? awayScore : homeScore;
 
-  // Obtener top 5 anotadores (mezclados, ordenados por puntos)
   const top5Players = [...playerScores]
     .sort((a, b) => b.points - a.points)
     .slice(0, 5);
@@ -22,8 +18,7 @@ export const GameOverScreen = ({ matchData, onNewGame }) => {
 
       <View style={gameOverStyles.winnerContainer}>
         <Text style={gameOverStyles.winnerLabel}>GANADOR</Text>
-        <TeamShield team={winner} size={150} />
-        <Text style={gameOverStyles.winnerName}>{winner.name}</Text>
+        <TeamShield team={winner} size={110} />
       </View>
 
       <View style={gameOverStyles.finalScoreContainer}>
@@ -52,8 +47,6 @@ export const GameOverScreen = ({ matchData, onNewGame }) => {
       <TouchableOpacity style={gameOverStyles.newGameButton} onPress={onNewGame}>
         <Text style={gameOverStyles.newGameButtonText}>NUEVO PARTIDO</Text>
       </TouchableOpacity>
-
-      <Text style={gameOverStyles.footer}>BALONCESTO '84</Text>
     </ScrollView>
   );
 };

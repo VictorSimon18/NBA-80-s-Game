@@ -35,8 +35,7 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
 
       {/* 1. Nombre de la app */}
       <View style={s.header}>
-        <Text style={s.title}>BALONCESTO '84</Text>
-        <Text style={s.subtitle}>SELECCIONA EQUIPOS</Text>
+        <Text style={s.subtitle}>SELECCIONA TUS EQUIPOS</Text>
       </View>
 
       {/* 2. Selector equipo local */}
@@ -52,7 +51,7 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
           </TouchableOpacity>
 
           <View style={s.selectorCenter}>
-            <TeamShield team={homeTeam} size={62} />
+            <TeamShield team={homeTeam} size={90} />
             <Text style={s.teamName}>{homeTeam.name}</Text>
           </View>
 
@@ -66,9 +65,9 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
         </View>
       </View>
 
-      {/* 3. Quinteto equipo local */}
+      {/* 3. Quinteto inicial equipo local */}
       <View style={s.playersBlock}>
-        <Text style={s.playersTitle}>QUINTETO</Text>
+        <Text style={s.playersTitle}>QUINTETO INICIAL</Text>
         {homeTeam.players.map((player, index) => (
           <Text key={index} style={s.playerName} numberOfLines={1}>
             {index + 1}. {player}
@@ -89,7 +88,7 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
           </TouchableOpacity>
 
           <View style={s.selectorCenter}>
-            <TeamShield team={awayTeam} size={62} />
+            <TeamShield team={awayTeam} size={90} />
             <Text style={s.teamName}>{awayTeam.name}</Text>
           </View>
 
@@ -105,7 +104,7 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
 
       {/* 5. Quinteto equipo visitante */}
       <View style={s.playersBlock}>
-        <Text style={s.playersTitle}>QUINTETO</Text>
+        <Text style={s.playersTitle}>QUINTETO INICIAL</Text>
         {awayTeam.players.map((player, index) => (
           <Text key={index} style={s.playerName} numberOfLines={1}>
             {index + 1}. {player}
@@ -120,7 +119,7 @@ export const TeamSelectionScreen = ({ onPlayPress }) => {
           onPress={() => onPlayPress(homeTeam, awayTeam)}
           activeOpacity={0.7}
         >
-          <Text style={s.playButtonText}>JUGAR</Text>
+          <Text style={s.playButtonText}>▶ JUGAR</Text>
         </TouchableOpacity>
       </View>
     </View>
