@@ -24,7 +24,7 @@ export const matchScreenStyles = StyleSheet.create({
     borderBottomColor: '#FFD700',
   },
   scoreLabel: {
-    fontSize: 12,
+    fontSize: 8,
     color: '#FF10F0',
     fontFamily: 'monospace',
     fontWeight: 'bold',
